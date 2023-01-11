@@ -33,7 +33,7 @@ Habilite a extensão postgis<br><br>
 
 1 - Crie um ambiente virtual(venv) na raiz do projeto e ative-a<br>
 2 - Instale as dependencias com o comando <code>(venv)$ pip install -r requirements.txt</code><br>
-3 - Configure o arquivo .env-não-finalizado:
+3 - Configure o arquivo env-não-finalizado:
 <ul>
       <li> SECRET_KEY --> insira uma chave de segurança forte ou crie um outro projeto django e copie a chave desse outro projeto <li>
       <li> DEBUG --> enquanto estiver desenvolvendo deixe em True caso contrario ponha False </li>
