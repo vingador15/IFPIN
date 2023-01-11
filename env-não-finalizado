@@ -1,0 +1,7 @@
+SECRET_KEY = [Sua chave de segurança]
+
+DEBUG = True
+
+ALLOWED_HOSTS = 127.0.0.1, .localhost, [SeuIp] //para abrir o site no celular digite o seguinte comando python manage.py runserver 0.0.0.0:80 mas o ip do seu computador deve estar aqui
+
+DATABASE_URL = postgres://[SeuUsuario]:[SuaSenha]@localhost/[SeuBD]
