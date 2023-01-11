@@ -1,0 +1,68 @@
+body{
+    background-color: rgb(236, 236, 236);
+}
+
+/*Página de Login*/
+
+#esqueci{
+    text-decoration: none;
+    color: blueviolet;
+    outline: none;
+}
+
+#navbar{
+    background-color: rgb(110, 0, 212)!important;
+}
+
+#brandicon {
+    width: 8rem;
+    height: 8rem;
+}
+
+#icone{
+    color: white !important;
+}
+
+#icone2{
+    color: white;
+}
+
+#btnlogin{
+    background-color: rgb(110, 0, 212);
+    background: linear-gradient(130deg,
+    rgba(110,0,212,1) 0%,
+    rgba(110,0,212,1) 35%,
+    rgba(58,0,111,1) 100%);
+    color: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+}
+
+#btnregister{
+    color: rgba(110,0,212,1);
+}
+
+#id_username{
+    background-color: rgb(110, 0, 212);
+    background: linear-gradient(130deg,
+    rgba(132,0,212552,1) 0%,
+    rgba(110,0,212,1) 35%,
+    rgba(58,0,111,1) 100%);
+    border-radius: 2rem;
+    color: white;
+    outline: none;
+}
+
+#id_password{
+    background-color: rgb(110, 0, 212);
+    background: linear-gradient(130deg,
+    rgba(132,0,255,1) 0%,
+    rgba(110,0,212,1) 35%,
+    rgba(58,0,111,1) 100%);
+    border-radius: 2rem;
+    border-color:rgba(110,0,212,1);
+    color: white;
+    outline: none;
+}
+
+/*Página de Registro*/
+

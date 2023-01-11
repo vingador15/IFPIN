@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Locais{% endblock %}
+
+{% block content %}
+        <article class="container">
+            {% for Local in Locais %}
+            <ul class="list-unstyled">
+                <li><a href="{% url 'verLocal' Local.id%}">{{Local.nome}}</a></li>
+            </ul>
+            {% empty %}
+            <p class='text-center'>Sem locais cadastrados no momento.</p>
+            {% endfor %}
+        </article>
+{% endblock %}

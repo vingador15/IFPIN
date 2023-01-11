@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Editar '{{Produtos.NomeProduto}}' {% endblock %}
+{% block content %}
+    <article class="container mx-auto">
+        <h2>Editar '{{Produtos.NomeProduto}}'</h2>
+        <form method="POST"> {% csrf_token %}
+            
+                {{ form|crispy }}
+            
+        <input type="submit" value="Editar" class="mt-3 btn btn-success">
+        </form>    
+    </article>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Informações da Sala {{Salas.Numero}}{% endblock %}
+
+{% block content %}
+<article class="container">
+    <h1>Sala {{Salas.Numero}}</h1>
+    <p>Funcao: {{Salas.Funcao}}</p>
+    <p>Local: {{Salas.Lugar}}</p>
+</article>
+{% endblock %}

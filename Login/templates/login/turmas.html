@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Turmas{% endblock %}
+
+{% block content %}
+    <article class="container">
+        <ul class="list-unstyled">
+        {% for Turma in Turmas %}
+            <a href="{% url 'verTurmas' Turma.id%}">Turma {{Turma.Numero}}</a>
+        </ul>
+        {% empty %}
+        <p class="text-center">Sem turmas cadastradas no momento.</p>
+        {% endfor %}
+    </article>
+{% endblock %}

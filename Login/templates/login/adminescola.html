@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block title %}Administrações da Escola{% endblock %}
+
+{%block content%}
+        <article class="container">
+            <ul class="list-unstyled">
+                {% for AdminEscola in AdminEscolas %}
+                <a href="{% url 'verAdminEscola' AdminEscola.id %}">{{AdminEscola.Nome}}</a>
+            </ul>
+            {% empty %}
+                <p class="text-center">Sem administrações cadastradas no momento.</p>
+            {% endfor %}
+        </article>
+{%endblock%}

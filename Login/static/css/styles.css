@@ -1,0 +1,56 @@
+body{
+    margin: auto;
+    padding: auto;
+    background-color: rgb(236, 236, 236);
+}
+
+h1 {
+    color: rgb(2, 0, 99);
+}
+/*Barra de Navegação*/
+
+#navbar{
+    background-color: rgb(110, 0, 212)!important;
+    margin-bottom: 1rem;
+}
+
+.nav-link{
+    color: white !important;
+    font-weight: 500;
+}
+
+/* Corpo */
+
+a{
+    text-decoration: none;
+    color: rgb(91, 0, 175);
+}
+
+
+
+/* Paginação */
+
+.pagination{
+    margin-bottom: 50px;
+}
+
+.step-links{
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.step-links .current{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Mensagem */
+
+ul.messages {
+    padding: 0;
+}
+
+ul.messages li{
+    list-style: none;
+}

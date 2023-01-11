@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Meu Perfil{% endblock %}
+{% block content %}
+    <article class="row">
+        {% for Perfil in object_list %}
+        {% if Perfil.usuario == request.user and Perfil.Nome %}
+        <div class="col-md-10 mt-3 mx-auto my-auto ">
+            <div class="card auth-card">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Meus Dados</h4>
+                    <img src="{{ Perfil.Foto }}" class="img-thumbnail" alt="Foto de Perfil">
+                    <p><strong>Nome:</strong> {{Perfil.Nome}} {{Perfil.UltimoNome}}</p>
+                    <p><strong>Tipo de Usuário:</strong> {{Perfil.TipoUsuario}}</p>
+                    <a href="{% url 'atualizarDados'%}" class=" mt-3 btn btn-primary" role="button">Atualizar Dados</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </article>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Salas{% endblock %}
+
+{% block content %}
+        <article class="container">
+            {% for Sala in Salas %}
+            <ul class="list-unstyled">
+                <a href="{% url 'verSala' Sala.id%}">Sala {{Sala.Numero}}</a>
+            </ul>
+            {% empty %}
+                <p class="text-center">Sem salas cadastradas no momento.</p>
+            {% endfor %}
+        </article>
+{% endblock %}

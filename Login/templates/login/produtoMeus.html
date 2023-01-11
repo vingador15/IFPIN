@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Meus Produtos{% endblock %}
+
+{% block content %}
+
+    {% if messages %}
+        <ul class="messages">
+            {%for message in messages %}
+            <li {% if message.tags %} class='alert alert-{{message.tags}}'{% endif %}>
+                {{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <article class="row align-items-center text-center">
+        {% if Produtos.number > 0 %}
+            {% for Produto in Produtos %}
+            <article class="col-6 card">
+                <div class="card-body">
+                    <h5 class="card-title">{{Produto.NomeProduto}}</h5>
+                    <p><strong>Vendido por:</strong> {{Produto.NomePessoa}}</p>
+                    <p><strong>Local:</strong>{{Produtos.Salas.Lugar}}</p>
+                    <p><strong>Sala:</strong>{{Produto.Salas.Numero}}</p>
+                    <p><strong>Situação:</strong> {{Produto.Situação}}</p>
+                    <p><strong>Preço:</strong> R${{Produto.Valor}}</p>
+                    <a class="mb-3 btn btn-outline-warning" href="{% url 'produtoEditar' Produto.id %}" role="button">Editar <i class="bi bi-pen"></i></a>
+                    <a class="mb-3 btn btn-outline-danger" href="{% url 'produtoDeletar' Produto.id %}" onclick="return confirm('Tem certeza?')" role="button">Deletar <i class="bi bi-trash3"></i></a>
+                </div>
+            </article>
+            {% endfor %}
+        {% else %}
+        <p>Você ainda não possui nenhum Produto cadastrado</p>
+        {% endif %}
+        <div class="pagination row align-items-center text-center">
+            <span class="step-links">
+                {% if Produtos.has_previous %}
+                    <a href="?page={{ Produtos.previous_page_number }}"><i class="bi bi-arrow-left-circle-fill"></i></a>
+                {% endif %}
+    
+                <span class="current">
+                    {{Produtos.number}} de {{Produtos.paginator.num_pages}}
+                </span>
+    
+                {% if Produtos.has_next %}
+                    <a href="?page={{ Produtos.next_page_number }}"><i class="bi bi-arrow-right-circle-fill"></i></a>
+                {% endif %}
+            </span>
+        </div>
+    </article>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Pin IF{% endblock %}
+{% block content%}
+    <article>
+        {% if request.user.perfil.Nome %}
+        <h6 class="text-center">Bem-Vindo(a) {{request.user.perfil.Nome}}.</h6>
+        {% else %}
+        <h6 class="text-center">Bem vindo(a) {{request.user.username}}.</h6>
+        <div class="col-md-10 mt-3 mx-auto my-auto">
+            <p class="text-center">Você precisa <a href="{% url 'atualizarDados'%}" role="button">criar um perfil</a> !!!</p>
+        </div>
+{% endif %}
+    </article>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Cadastrar um Produto{{Produtos.Nome}}{% endblock %}
+
+{% block content %}
+    <article class="container">
+        <h2>Cadastrar Produtos</h2>
+        <form method="POST"> {% csrf_token %}
+                {{ form.media.js }}
+                {{ form|crispy }}
+        <input type="submit" value="Cadastrar" class="mt-3 btn btn-success">
+        </form>    
+    </article>
+{% endblock %}

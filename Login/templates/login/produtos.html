@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+    <article class="row justify-content-center align-items-center">
+        <a class="col-3 mb-3 btn btn-success" id="btnProdutos" href="{% url 'produtoMeus' %}" role="button">Meus Produtos</a>
+        <a class="col-3 mb-3 btn btn-primary" id="btnProdutos" href="{% url 'produtoCadastro' %}" role="button">Quero Cadastrar um Produto</a>
+    </article>
+    <div class="row align-items-center text-center">
+        {% for Produto in Produtos %}
+            {% if Produto.Situação == 'Aprovado' %}
+            <article class="col-6 card">
+                <div class="card-body">
+                    <h5 class="card-title">{{Produto.NomeProduto}}</h5>
+                    <a class="btn btn-outline-primary" href="{% url 'verProdutos' Produto.id%}" role="button">Ver Mais <i class="bi bi-eye"></i></a>
+                </div>
+            </article>
+            {% endif %}
+        {% empty %}
+            <p>Sem Produtos Cadastrados</p>
+        {% endfor %}
+    </div>
+    <div class="pagination row align-items-center text-center">
+        <span class="step-links">
+            {% if Produtos.has_previous %}
+                <a href="?page={{ Produtos.previous_page_number }}"><i class="bi bi-arrow-left-circle-fill"></i></a>
+            {% endif %}
+
+            <span class="current">
+                {{Produtos.number}} de {{Produtos.paginator.num_pages}}
+            </span>
+
+            {% if Produtos.has_next %}
+                <a href="?page={{ Produtos.next_page_number }}"><i class="bi bi-arrow-right-circle-fill"></i></a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

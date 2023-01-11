@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Informações do Produto {{Produtos.Nome}}{% endblock %}
+
+{%block content %}
+    <article class="container">
+        <h1>{{Produtos.NomeProduto}}</h1>
+        <p>Vendido por: {{Produtos.NomePessoa}}</p>
+        <p>Local: {{Produtos.Salas.Lugar}}</p>
+        <p>Sala:{{Produtos.Salas.Numero}}</p>
+        <p>Preço: R${{Produtos.Valor}}</p>
+    </article>
+{% endblock %}

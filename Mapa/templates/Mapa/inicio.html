@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}IFPIN{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'libs/leaflet/leaflet.css' %}">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+{% endblock extracss %}
+
+{% block content%}
+    {% if request.user.is_authenticated %}
+    <article>
+
+        <div id="pesquisa" class="row">
+            <form action="{% url 'Locais' %}" method="GET">
+
+                <input id="barPesquisa" type="text" placeholder="Pesquise um Local" name="nome" value="{{ request.GET.nome }}" autocomplete="off">
+
+                <button class="btn" id ="btnsearch" type="submit">Buscar</button>
+
+                <a id="btnclean"class="btn btn-light" role="button" href="{% url 'inicio'%}">Limpar</a>
+
+            </form>
+        </div>
+        <div class="container">
+            {% if request.user.perfil.Nome %}
+            <h6 class="text-center">Bem-Vindo(a) {{request.user.perfil.Nome}}.</h6>
+            {% else %}
+            <h6 class="text-center">Bem vindo(a) {{request.user.username}}.</h6>
+            <div class="col-md-10 mt-3 mx-auto my-auto">
+                <p class="text-center">Você precisa <a id="msgatt" href="{% url 'atualizarDados' %}" role="button">criar um perfil</a> !!!</p>
+            </div>
+            {% endif %}
+        </div>
+    </article>
+    {% endif %}
+    <article>
+        <div id="map"></div>
+        <input type="hidden" id="mapageojson" value="{% url 'mapageojson' %}">
+    </article>
+    
+    {% endblock content %}
+
+{% block extrajs %}
+    <script src="{% static 'libs/leaflet/leaflet.js' %}"></script>
+    <script src="{% static 'js/map.js' %}"></script>
+{% endblock extrajs %}

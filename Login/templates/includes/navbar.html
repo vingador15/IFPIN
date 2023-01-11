@@ -1,0 +1,57 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-expand-lg bg-light sticky-top" id="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+          <img src="{% static 'images/IF-PIN.png'%}" alt="" width="80" height="75" >
+        </a>
+        {% block msg%}{% endblock %}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i> {{ request.user }}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'verPerfil' %}">Meu Perfil</a></li>
+                <li><a class="dropdown-item" href="{% url 'alterarSenha' %}">Alterar Senha</a></li>
+                <li><a class="dropdown-item" href="{% url 'sair' %}">Sair</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Produtos' %}">Produtos</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Informações do Mapa
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'Locais'%}">Locais</a></li>
+                <li><a class="dropdown-item" href="{% url 'Salas'%}">Salas</a></li>
+                <li><a class="dropdown-item" href="{% url 'Turmas'%}">Turmas</a></li>
+                <li><a class="dropdown-item" href="{% url 'AdminEscola'%}">Administrações da Escola</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Entrar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'registrar'%}">Registrar</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Sobre' %}">Sobre</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+</header>

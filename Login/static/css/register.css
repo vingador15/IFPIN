@@ -1,0 +1,33 @@
+body{
+    background-color: rgb(236, 236, 236);
+    color: rgb(53, 0, 102);
+}
+
+main{
+    margin-top: 4rem;
+}
+
+#id_username,#id_email,#id_password1,#id_password2{
+    border-radius: 2rem;
+    border-color: rgb(110, 0, 212);
+    border-width: .14rem;
+}
+
+#navbar{
+    background-color: rgb(110, 0, 212)!important;
+}
+
+#icone2{
+    color: white !important;
+}
+
+#btn{
+    background-color: rgb(110, 0, 212);
+    background: linear-gradient(130deg,
+    rgba(110,0,212,1) 0%,
+    rgba(110,0,212,1) 35%,
+    rgba(58,0,111,1) 100%);
+    color: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+}
+
